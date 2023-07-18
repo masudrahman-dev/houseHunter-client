@@ -1,8 +1,10 @@
-
+import Navbar from "./components/shared/Navbar";
+import {Outlet}  from "react-router-dom";
 const App = () => {
   return (
     <div>
-      app
+      <Navbar></Navbar>
+      <Outlet />
     </div>
   );
 };
