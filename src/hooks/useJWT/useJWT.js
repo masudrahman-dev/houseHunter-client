@@ -4,7 +4,7 @@ const useJWT = () => {
   const handleJWT = (data) => {
     console.log(data);
     axios
-      .post("http://localhost:3000/api/users/jwt", data)
+      .post("https://house-hunter-server-flax.vercel.app/api/users/jwt", data)
       .then((res) => {
         // console.log(res.data);
 

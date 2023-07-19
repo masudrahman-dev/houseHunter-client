@@ -46,7 +46,7 @@ const Form = ({
               {...register("fullName", { required: true })}
               className="mt-1 px-4 py-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300"
             />
-            {errors.exampleRequired && <span>This field is required</span>}
+            {errors.fullName && <span>This field is required</span>}
           </div>
         )}
 

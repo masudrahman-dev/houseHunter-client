@@ -6,7 +6,6 @@ const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [userEmail, setUserEmail] = useState(null);
 
-  
   useEffect(() => {
     const email = JSON.parse(localStorage.getItem("userEmail"));
     const timeoutId = setTimeout(() => {
@@ -20,7 +19,10 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const login = (data) => {
-    return axios.post("http://localhost:3000/api/users/login", data);
+    return axios.post(
+      "https://house-hunter-server-flax.vercel.app/api/users/login",
+      data
+    );
   };
 
   const logout = () => {
@@ -30,7 +32,10 @@ const AuthProvider = ({ children }) => {
   };
 
   const register = (data) => {
-    return axios.post("http://localhost:3000/api/users/register", data);
+    return axios.post(
+      "https://house-hunter-server-flax.vercel.app/api/users/register",
+      data
+    );
   };
 
   return (
