@@ -15,9 +15,8 @@ const Navbar = () => {
   const handleLogout = () => {
     logout()
       .then(() => {
-        // console.log("Logout Promise resolved successfully.");
+        console.log("Logout successfully.");
         setIsLoggedIn(false);
-        // localStorage.setItem("userEmail", JSON.stringify(email));
         setUserEmail(null);
         localStorage.removeItem("userEmail");
         navigate(from, { replace: true });

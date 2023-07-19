@@ -5,20 +5,18 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [userEmail, setUserEmail] = useState(null);
-  console.log("userEmail :>> ", userEmail);
+
+  
   useEffect(() => {
     const email = JSON.parse(localStorage.getItem("userEmail"));
-    axios
-      .get(`http://localhost:3000/api/users/isLoggedIn/?email=${email}`)
-      .then((res) => {
-        // console.log(res.data.email.email);
-        setUserEmail(email);
-        setIsLoggedIn(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        setIsLoggedIn(false);
-      });
+    const timeoutId = setTimeout(() => {
+      setUserEmail(email);
+      setIsLoggedIn(false);
+    }, 500);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   const login = (data) => {
