@@ -1,15 +1,50 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import useAuth from "../../context/authContext/useAuth";
+import useRedirect from "../../hooks/redirect/useRedirect";
 
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const { logout, setIsLoggedIn, setUserEmail } = useAuth();
 
+  const { navigate, from } = useRedirect("/");
   const handleMenuToggle = () => {
     setMenuOpen(!isMenuOpen);
   };
 
+  const handleLogout = () => {
+    logout()
+      .then(() => {
+        // console.log("Logout Promise resolved successfully.");
+        setIsLoggedIn(false);
+        // localStorage.setItem("userEmail", JSON.stringify(email));
+        setUserEmail(null);
+        localStorage.removeItem("userEmail");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.error("Logout Promise rejected:", error.message);
+        // Handle the error that occurred during logout.
+      });
+  };
   const menuItems = (
     <ul className="md:flex md:flex-row flex flex-col gap-5">
+      <li>
+        <NavLink
+          to="/"
+          className="text-white hover:bg-gray-700 px-3 py-2 rounded"
+        >
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/dashboard"
+          className="text-white hover:bg-gray-700 px-3 py-2 rounded"
+        >
+          Dashboard
+        </NavLink>
+      </li>
       <li>
         <NavLink
           to="/login"
@@ -36,6 +71,14 @@ const Navbar = () => {
             <NavLink to="/" className="text-white text-xl font-bold">
               HouseHunter
             </NavLink>
+          </div>
+          <div>
+            <button
+              className="text-white text-xl font-bold"
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
           </div>
           <div>
             <div className="hidden md:flex  space-x-4">{menuItems}</div>
