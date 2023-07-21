@@ -94,7 +94,7 @@ const Table = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://house-hunter-server-flax.vercel.app/api/houses/addNewHouse"
+          `${import.meta.env.VITE_BASE_URL}/api/houses/addNewHouse`
         );
         setHouses(response.data);
       } catch (error) {

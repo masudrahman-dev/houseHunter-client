@@ -29,7 +29,6 @@ const Navbar = () => {
       });
   };
 
-
   const menuItems = (
     <ul className="md:flex md:flex-row flex flex-col gap-5">
       <li>
@@ -64,20 +63,13 @@ const Navbar = () => {
           Logout
         </span>
       </li>
-      <li>
-        <NavLink
-          to="/register"
-          className="text-white hover:bg-gray-700 px-3 py-2 rounded"
-        >
-          Register
-        </NavLink>
-      </li>
     </ul>
   );
   return (
-    <nav className="bg-gray-800 p-4 shadow-lg">
-      <div className="max-w-screen-xl mx-auto">
-        <div className=" md:flex flex-col justify-center items-center gap-5">
+    // fixed top-0 left-0
+    <nav className="  bg-gray-800 py-4 shadow-lg  w-full">
+      <div className="max-w-screen-xl mx-auto px-4 ">
+        <div className=" md:flex  justify-between items-center gap-5">
           <div className="hidden md:block text-center">
             <NavLink to="/" className="text-white text-2xl font-bold">
               HouseHunter

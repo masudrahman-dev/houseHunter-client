@@ -22,7 +22,7 @@ const CRUDForm = () => {
 
         axios
           .post(
-            "https://house-hunter-server-flax.vercel.app/api/houses/addNewHouse",
+            `${import.meta.env.VITE_BASE_URL}/api/houses`,
             data
           )
           .then((response) => {

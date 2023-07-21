@@ -29,16 +29,16 @@ const Card = ({ house }) => {
         </h5>
 
         <div className="mb-3">
-          <ul className="flex gap-3 flex-col">
+          <ul className="grid grid-cols-1 gap-2">
             <li>Rent Per Month : & {rentPerMonth}</li>
             <li>Phone Number : {phoneNumber}</li>
             <li>city : {city}</li>
             <li>Availability Date : {availabilityDate}</li>
             <li>Bed Rooms : {bedrooms}</li>
-            <li>Room Size : {roomSize} feet</li>
+            <li>Room Size : {roomSize} sqrt feet</li>
             <li>Address: {address} </li>
-            <li>Description: {description} </li>
           </ul>
+      
         </div>
 
         <Link

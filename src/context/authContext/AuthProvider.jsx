@@ -20,7 +20,7 @@ const AuthProvider = ({ children }) => {
 
   const login = (data) => {
     return axios.post(
-      "https://house-hunter-server-flax.vercel.app/api/users/login",
+      `${import.meta.env.VITE_BASE_URL}/api/users/login`,
       data
     );
   };
@@ -33,7 +33,7 @@ const AuthProvider = ({ children }) => {
 
   const register = (data) => {
     return axios.post(
-      "https://house-hunter-server-flax.vercel.app/api/users/register",
+      `${import.meta.env.VITE_BASE_URL}/api/users/register`,
       data
     );
   };

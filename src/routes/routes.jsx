@@ -20,24 +20,6 @@ const router = createBrowserRouter([
             <Dashboard />
           </PrivateRoute>
         ),
-        children: [
-          {
-            path: "addNewHouse",
-            element: (
-              <PrivateRoute>
-                <CRUDForm />
-              </PrivateRoute>
-            ),
-          },
-          {
-            path: "manageHouse",
-            element: (
-              <PrivateRoute>
-                <Table />
-              </PrivateRoute>
-            ),
-          },
-        ],
       },
 
       {
@@ -57,3 +39,19 @@ const router = createBrowserRouter([
 ]);
 
 export default router;
+// {
+//   path: "addNewHouse",
+//   element: (
+//     <PrivateRoute>
+//       <CRUDForm />
+//     </PrivateRoute>
+//   ),
+// },
+// {
+//   path: "manageHouse",
+//   element: (
+//     <PrivateRoute>
+//       <Table />
+//     </PrivateRoute>
+//   ),
+// }

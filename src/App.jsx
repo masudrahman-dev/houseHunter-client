@@ -1,19 +1,28 @@
+import { useContext, useEffect } from "react";
+import Container from "./components/container/Container";
 import Navbar from "./components/shared/Navbar";
 import { Outlet } from "react-router-dom";
-import FilterBar from "./layout/Main/Filterbar";
+import { GlobalContext } from "./context/globalContext/GlobalProvider";
 
 const App = () => {
+  const { isFilterBarOpen, setIsFilterBarOpen } = useContext(GlobalContext);
+
   return (
     <div>
-      <Navbar></Navbar>
+      <div
+        className={` bg-slate-900 w-52 h-screen fixed transition-all transform 
+        ${isFilterBarOpen ? "translate-x-0 " : " -translate-x-full"} `}
+      >
+        <div className="flex items-center text-red-500 justify-center">
+          <button onClick={() => setIsFilterBarOpen(false)}>close</button>
+        </div>
+      </div>
 
-      <div className="max-w-screen-xl mx-auto  grid grid-cols-12 ">
-        <div className="col-span-3">
-          <FilterBar />
-        </div>
-        <div className="col-span-9 md:ml-3">
+      <Navbar />
+      <div className="mt-16">
+        <Container>
           <Outlet />
-        </div>
+        </Container>
       </div>
     </div>
   );

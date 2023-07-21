@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { NavLink } from "react-router-dom";
 
 const Form = ({
   userFullName,
@@ -136,6 +137,18 @@ const Form = ({
           </button>
         )}
       </form>
+      <p>
+        if you are new, go to{" "}
+        <NavLink className={"underline"} to="/register">
+          Register
+        </NavLink>
+      </p>
+      <p>
+        if Already have Account, go to{" "}
+        <NavLink className={"underline"} to="/login">
+          Login
+        </NavLink>
+      </p>
     </div>
   );
 };

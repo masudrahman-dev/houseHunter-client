@@ -4,7 +4,7 @@ const useJWT = () => {
   const handleJWT = (data) => {
     console.log(data);
     axios
-      .post("https://house-hunter-server-flax.vercel.app/api/users/jwt", data)
+      .post(`${import.meta.env.VITE_BASE_URL}/api/users/jwt`, data)
       .then((res) => {
         // console.log(res.data);
 
